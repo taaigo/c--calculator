@@ -4,7 +4,7 @@
     {
         Calculator calculator = new Calculator();
     
-        Console.WriteLine("Input +, -, / of x: ");
+        Console.WriteLine("Input +, -, /, x of ^(tot de macht): ");
         string chosenOperator = calculator.GetOperator();
 
         Console.Write("eerste nummer: ");
@@ -12,7 +12,7 @@
         Console.Write("tweede nummer: ");
         int intTwo = calculator.GetInt();
 
-        int solution = calculator.calculate(intOne, intTwo, chosenOperator);
+        double solution = calculator.calculate(intOne, intTwo, chosenOperator);
         
         Console.WriteLine("antwoord: " + solution);
     }
@@ -27,7 +27,7 @@
         return Convert.ToInt32(Console.ReadLine());
     }
 
-    private int calculate(int a, int b, string op)
+    private double calculate(int a, int b, string op)
     {
         switch (op)
         {
@@ -39,6 +39,8 @@
                 return a * b;
             case "/":
                 return a / b;
+            case "^":
+                return Math.Pow(a, b);
             default:
                 Console.WriteLine("error");
                 return 1;
